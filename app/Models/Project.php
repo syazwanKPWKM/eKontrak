@@ -41,6 +41,11 @@ class Project extends Model
         'sealed_date' => 'date',
     ];
 
+    public function allocations()
+    {
+        return $this->hasOne(ProjectAllocation::class);
+    }
+
     public function getContractStatusLabelAttribute()
     {
     return self::statusOptions()[$this->contract_status] ?? $this->contract_status;
